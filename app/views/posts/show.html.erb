@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @post.image.url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @post.like_users.count %>
+</p>
+
+<p>
+  <%= like_button(@post, current_user) %>
+</p>
+
+<% if can? :manage, @post %>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
+<%= link_to 'Back', posts_path %>
